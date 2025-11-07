@@ -20,7 +20,7 @@ public class Database {
 
     // Método para conectar
     public static Connection connect() {
-        Connection conn = null;
+        Connection conn = null; 
         try {
             conn = DriverManager.getConnection(URL);
             System.out.println("✅ Conexión a SQLite establecida correctamente.");
@@ -51,6 +51,8 @@ public class Database {
         }
     }
 
+    
+    
     // Método principal para probar conexión
     public static void main(String[] args) {
         createUserTable(); // crea la tabla si no existe
