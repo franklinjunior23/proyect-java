@@ -162,7 +162,7 @@ public class UserRepository {
         user.setFechaCreacion(rs.getTimestamp("fecha_creacion").toLocalDateTime());
         user.setFechaActualizacion(rs.getTimestamp("fecha_actualizacion").toLocalDateTime());
 
-        // Convertimos el role de texto a enum
+        // role transformation
         String roleStr = rs.getString("rol");
         user.setRol(Usuario.Rol.valueOf(roleStr));
 
