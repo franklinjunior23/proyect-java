@@ -8,7 +8,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import org.proyect.domain.models.User;
+import org.proyect.domain.models.Usuario;
 
 /**
  *
@@ -17,13 +17,13 @@ import org.proyect.domain.models.User;
 public class AppView extends javax.swing.JFrame {
     
     // CURRENT USER
-    private final User currentUser;
+    private final Usuario currentUser;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppView.class.getName());
 
     /**
      * Creates new form AppView
      */
-    public AppView(User user) {
+    public AppView(Usuario user) {
        // Aseguramos que el usuario no sea nulo antes de construir la vista
         if (user == null) {
             throw new IllegalArgumentException("La AppView requiere un usuario autenticado.");
