@@ -17,7 +17,9 @@ import java.sql.SQLException;
 
 public class Database {
 
-    private static final String URL = "jdbc:postgresql://aws-0-us-west-2.pooler.supabase.com:6543/postgres?sslmode=require&pgbouncer=true";
+    private static final String URL =
+            "jdbc:postgresql://aws-0-us-west-2.pooler.supabase.com:6543/postgres" +
+                    "?sslmode=require&pgbouncer=true&preferQueryMode=simple";
     private static final String USER = "postgres.rgozeinmxdreepdptjyh";
     private static final String PASSWORD = "G1Cmypwpr96pWGf7";
 
