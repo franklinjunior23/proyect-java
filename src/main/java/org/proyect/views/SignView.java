@@ -42,28 +42,26 @@ public class SignView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        txtUsername.setText("Usuario");
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Usuario");
+        jLabel1.setText("Correo");
 
         jLabel2.setText("Contraseña");
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("iniciar sesion");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        txtPassword.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,6 +95,7 @@ public class SignView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
@@ -115,24 +114,6 @@ public class SignView extends javax.swing.JFrame {
         }
         this.dispose();
         new AppView(userLogged).setVisible(true);
-
-
-//            JOptionPane.showMessageDialog(this, "Bienvenido(a) " + userLogged.getUsername() + "!",
-//                                          "Login Exitoso", JOptionPane.INFORMATION_MESSAGE);
-//
-//            // --- Lógica de Navegación ---
-//            // Cierra la ventana de login y abre la ventana principal (AppView)
-//            this.dispose();
-//            new AppView(userLogged).setVisible(true); // Asumiendo que AppView recibe el User
-//
-//        } else {
-//            // El controlador ya imprime un error, pero mostramos el mensaje al usuario
-//            JOptionPane.showMessageDialog(this, "Usuario o Contraseña inválidos. Intente de nuevo.",
-//                                          "Error de Login", JOptionPane.ERROR_MESSAGE);
-//        }
-//
-//        // Opcional: Limpiar la contraseña por seguridad
-//        txtPassword.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
