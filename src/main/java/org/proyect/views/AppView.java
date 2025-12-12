@@ -42,13 +42,13 @@ public class AppView extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         jPanel1 = new javax.swing.JPanel();
         navbarComponent = new org.proyect.views.components.NavbarComponent();
         productsSection1 = new org.proyect.views.sections.ProductsSection();
-        contentPanel = new javax.swing.JPanel(new java.awt.CardLayout());
-        contentPanel.add(productsSection1, "products");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(21, 21, 21));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -61,17 +61,17 @@ public class AppView extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(navbarComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(productsSection1, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(navbarComponent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(productsSection1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(navbarComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -87,53 +87,13 @@ public class AppView extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-
-        // Register navigation listener to swap cards
-        navbarComponent.setNavigationListener(new org.proyect.views.components.NavbarComponent.NavigationListener() {
-            @Override
-            public void navigateTo(String route) {
-                java.awt.CardLayout cl = (java.awt.CardLayout)(contentPanel.getLayout());
-                switch(route) {
-                    case "products":
-                        cl.show(contentPanel, "products");
-                        break;
-                    case "products-low-stock":
-                        ensurePanel("products-low-stock", new org.proyect.views.sections.LowStockProductsSection());
-                        cl.show(contentPanel, "products-low-stock");
-                        break;
-                    case "categories":
-                        ensurePanel("categories", new org.proyect.views.sections.CategoriesSection());
-                        cl.show(contentPanel, "categories");
-                        break;
-                    case "providers":
-                        ensurePanel("providers", new org.proyect.views.sections.ProvidersSection());
-                        cl.show(contentPanel, "providers");
-                        break;
-                    case "transactions":
-                        ensurePanel("transactions", new org.proyect.views.sections.TransactionsSection());
-                        cl.show(contentPanel, "transactions");
-                        break;
-                    default:
-                        logger.warning("Ruta desconocida: " + route);
-                }
-            }
-        });
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel contentPanel;
     private org.proyect.views.components.NavbarComponent navbarComponent;
     private org.proyect.views.sections.ProductsSection productsSection1;
     // End of variables declaration//GEN-END:variables
-
-    private void ensurePanel(String name, javax.swing.JPanel panel) {
-        for (java.awt.Component c : contentPanel.getComponents()) {
-            if (name.equals(c.getName())) return;
-        }
-        panel.setName(name);
-        contentPanel.add(panel, name);
-    }
 
 }
