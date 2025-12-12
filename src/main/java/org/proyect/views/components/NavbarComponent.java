@@ -28,6 +28,17 @@ public class NavbarComponent extends javax.swing.JPanel {
 
     }
 
+    // Simple navigation listener interface
+    public static interface NavigationListener {
+        void navigateTo(String route);
+    }
+
+    private NavigationListener navigationListener;
+
+    public void setNavigationListener(NavigationListener listener) {
+        this.navigationListener = listener;
+    }
+
     private void ajustarImagen(javax.swing.JLabel lbl) {
         // 1. Verificamos que el label tenga un tamaño asignado (si no, dará error)
         if (lbl.getWidth() > 0 && lbl.getHeight() > 0) {
@@ -183,22 +194,23 @@ public class NavbarComponent extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.out.println("Productos /");
+    if (navigationListener != null) navigationListener.navigateTo("products");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        System.out.println("Productos -stock /");    }//GEN-LAST:event_jButton3ActionPerformed
+        if (navigationListener != null) navigationListener.navigateTo("products-low-stock");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         System.out.println("Categoria /");
+         if (navigationListener != null) navigationListener.navigateTo("categories");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        System.out.println("Proveedores /");
+    if (navigationListener != null) navigationListener.navigateTo("providers");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         System.out.println("Transacciones /");
+         if (navigationListener != null) navigationListener.navigateTo("transactions");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
