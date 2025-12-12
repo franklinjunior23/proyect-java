@@ -43,9 +43,12 @@ public class AppView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        navbarComponent = new org.proyect.views.components.NavbarComponent();
-        productsSection1 = new org.proyect.views.sections.ProductsSection();
+    jPanel1 = new javax.swing.JPanel();
+    navbarComponent = new org.proyect.views.components.NavbarComponent();
+    contentPanel = new org.proyect.views.components.RoundedOutlet();
+    contentPanel.setLayout(new java.awt.CardLayout());
+    org.proyect.views.sections.ProductsSection prod = new org.proyect.views.sections.ProductsSection();
+    contentPanel.add(prod, "products");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -53,25 +56,29 @@ public class AppView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(21, 21, 21));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
+    navbarComponent.setBackground(new java.awt.Color(51, 51, 51));
+
+    contentPanel.setBackground(new java.awt.Color(51, 51, 51));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(19, 19, 19)
                 .addComponent(navbarComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(productsSection1, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(contentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(productsSection1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(navbarComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(navbarComponent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -92,8 +99,16 @@ public class AppView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private org.proyect.views.components.RoundedOutlet contentPanel;
     private org.proyect.views.components.NavbarComponent navbarComponent;
-    private org.proyect.views.sections.ProductsSection productsSection1;
     // End of variables declaration//GEN-END:variables
+
+    private void ensurePanel(String name, javax.swing.JPanel panel) {
+        for (java.awt.Component c : contentPanel.getComponents()) {
+            if (name.equals(c.getName())) return;
+        }
+        panel.setName(name);
+        contentPanel.add(panel, name);
+    }
 
 }

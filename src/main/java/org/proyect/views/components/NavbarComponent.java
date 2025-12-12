@@ -23,8 +23,15 @@ public class NavbarComponent extends javax.swing.JPanel {
     public NavbarComponent() {
         initComponents();
         setOpaque(false);
-        setBackground(new Color(51, 51, 51));
-        ajustarImagen(jLabel1);
+    // prefer a darker minimal background
+    setBackground(new Color(30,30,30));
+    ajustarImagen(jLabel1);
+    // install minimal hover and pointer behavior
+    installHover(jButton1);
+    installHover(jButton2);
+    installHover(jButton3);
+    installHover(jButton4);
+    installHover(jButton5);
 
     }
 
@@ -75,28 +82,28 @@ public class NavbarComponent extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jButtonLogout = new javax.swing.JButton();
 
         javax.swing.ImageIcon iconoOriginal = new javax.swing.ImageIcon(getClass().getResource("/colbox-logo.png"));
-        int ancho = 150;
-        int alto = 150;
+    int ancho = 120; // smaller logo for minimal UI
+    int alto = 80;
         java.awt.Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(ancho, alto, java.awt.Image.SCALE_SMOOTH);
         jLabel1.setIcon(new javax.swing.ImageIcon(imagenEscalada));
 
-        // Accent color for active item
-        final java.awt.Color accent = new java.awt.Color(0,153,204);
+    // Accent color for active item
+    final java.awt.Color accent = new java.awt.Color(0,153,204);
 
-        // common style for nav buttons
-        javax.swing.JButton[] navButtons = new javax.swing.JButton[5];
+    // common style for nav buttons
+    javax.swing.JButton[] navButtons = new javax.swing.JButton[5];
 
-        jButton1.setBackground(new java.awt.Color(30, 30, 30));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Transacciones");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
+    jButton1.setBackground(new java.awt.Color(30, 30, 30));
+    jButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // smaller font for minimalist
+    jButton1.setForeground(new java.awt.Color(220, 220, 220));
+    jButton1.setText("Transacciones");
+    jButton1.setBorder(null);
+    jButton1.setBorderPainted(false);
+    jButton1.setContentAreaFilled(false);
+    jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setActiveButton("transactions");
@@ -104,14 +111,15 @@ public class NavbarComponent extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(30, 30, 30));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Productos");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
+    jButton2.setBackground(new java.awt.Color(30, 30, 30));
+    jButton2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+    jButton2.setForeground(new java.awt.Color(220, 220, 220));
+    jButton2.setText("Productos");
+    jButton2.setBorder(null);
+    jButton2.setBorderPainted(false);
+    jButton2.setContentAreaFilled(false);
+    jButton2.setFocusPainted(false);
+    jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setActiveButton("products");
@@ -119,13 +127,14 @@ public class NavbarComponent extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(30, 30, 30));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Productos (- stock)");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
+    jButton3.setBackground(new java.awt.Color(30, 30, 30));
+    jButton3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+    jButton3.setForeground(new java.awt.Color(220, 220, 220));
+    jButton3.setText("Productos (- stock)");
+    jButton3.setBorder(null);
+    jButton3.setBorderPainted(false);
+    jButton3.setContentAreaFilled(false);
+    jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setActiveButton("products-low-stock");
@@ -133,13 +142,14 @@ public class NavbarComponent extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(30, 30, 30));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Proveedor");
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
+    jButton4.setBackground(new java.awt.Color(30, 30, 30));
+    jButton4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+    jButton4.setForeground(new java.awt.Color(220, 220, 220));
+    jButton4.setText("Proveedor");
+    jButton4.setBorder(null);
+    jButton4.setBorderPainted(false);
+    jButton4.setContentAreaFilled(false);
+    jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setActiveButton("providers");
@@ -147,13 +157,14 @@ public class NavbarComponent extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(30, 30, 30));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Categoria");
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
+    jButton5.setBackground(new java.awt.Color(30, 30, 30));
+    jButton5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+    jButton5.setForeground(new java.awt.Color(220, 220, 220));
+    jButton5.setText("Categoria");
+    jButton5.setBorder(null);
+    jButton5.setBorderPainted(false);
+    jButton5.setContentAreaFilled(false);
+    jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setActiveButton("categories");
@@ -161,25 +172,17 @@ public class NavbarComponent extends javax.swing.JPanel {
             }
         });
 
-        navButtons[0]=jButton1; navButtons[1]=jButton2; navButtons[2]=jButton3; navButtons[3]=jButton4; navButtons[4]=jButton5;
+    navButtons[0]=jButton1; navButtons[1]=jButton2; navButtons[2]=jButton3; navButtons[3]=jButton4; navButtons[4]=jButton5;
 
-        // Combo box (select) to offer quick navigation/filter
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ver: Todos", "Ver: Bajo stock", "Ver: Categorías" }));
-        jComboBox1.setBackground(new java.awt.Color(40,40,40));
-        jComboBox1.setForeground(new java.awt.Color(255,255,255));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         // Logout button at the bottom
-        jButtonLogout.setBackground(new java.awt.Color(40,40,40));
-        jButtonLogout.setFont(new java.awt.Font("Segoe UI", 0, 14));
-        jButtonLogout.setForeground(new java.awt.Color(255,255,255));
-        jButtonLogout.setText("Cerrar sesión");
-        jButtonLogout.setBorder(null);
-        jButtonLogout.setContentAreaFilled(false);
+    jButtonLogout.setBackground(new java.awt.Color(40,40,40));
+    jButtonLogout.setFont(new java.awt.Font("Segoe UI", 0, 14));
+    jButtonLogout.setForeground(new java.awt.Color(220,220,220));
+    jButtonLogout.setText("Cerrar sesión");
+    jButtonLogout.setBorder(null);
+    jButtonLogout.setContentAreaFilled(false);
+    jButtonLogout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jButtonLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLogoutActionPerformed(evt);
@@ -195,17 +198,15 @@ public class NavbarComponent extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    // removed select
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))))
                 .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -218,17 +219,16 @@ public class NavbarComponent extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12,12,12)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -255,14 +255,7 @@ public class NavbarComponent extends javax.swing.JPanel {
          if (navigationListener != null) navigationListener.navigateTo("transactions");
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        int idx = jComboBox1.getSelectedIndex();
-        switch(idx) {
-            case 0: if (navigationListener != null) navigationListener.navigateTo("products"); break;
-            case 1: if (navigationListener != null) navigationListener.navigateTo("products-low-stock"); break;
-            case 2: if (navigationListener != null) navigationListener.navigateTo("categories"); break;
-        }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    // select removed
 
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
         if (navigationListener != null) {
@@ -295,6 +288,20 @@ public class NavbarComponent extends javax.swing.JPanel {
         }
     }
 
+    // install simple hover effect on a button
+    private void installHover(final javax.swing.JButton btn) {
+        btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn.setForeground(new java.awt.Color(180,180,180));
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                // keep active or default
+                // if any button is active, leave accent; else default
+                btn.setForeground(new java.awt.Color(220,220,220));
+            }
+        });
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -303,7 +310,7 @@ public class NavbarComponent extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    // javax.swing.JComboBox<String> jComboBox1; removed
     private javax.swing.JButton jButtonLogout;
     // End of variables declaration//GEN-END:variables
 

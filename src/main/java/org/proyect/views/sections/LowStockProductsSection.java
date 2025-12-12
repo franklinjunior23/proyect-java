@@ -14,7 +14,9 @@ public class LowStockProductsSection extends javax.swing.JPanel {
      * Creates new form LowStockProductsSection
      */
     public LowStockProductsSection() {
-        initComponents();
+    initComponents();
+    setBackground(new java.awt.Color(51,51,51));
+    jLabel1.setForeground(new java.awt.Color(255,255,255));
     }
 
     /**
@@ -52,4 +54,6 @@ public class LowStockProductsSection extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    // custom painting removed to avoid conflicts with form editor
 }

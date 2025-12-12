@@ -2,21 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package org.proyect.views.sections;
+package org.proyect.views.components;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.geom.Area;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.Color;
 
 /**
  *
  * @author frijol
  */
-public class CategoriesSection extends javax.swing.JPanel {
+public class RoundedOutlet extends javax.swing.JPanel {
+
+    private int arc = 15;
 
     /**
-     * Creates new form CategoriesSection
+     * Creates new form RoundedOutlet
      */
-    public CategoriesSection() {
-    initComponents();
-    setBackground(new java.awt.Color(51,51,51));
-    jLabel1.setForeground(new java.awt.Color(255,255,255));
+    public RoundedOutlet() {
+        super();
+    setOpaque(false);
+    // default background requested
+    setBackground(new Color(30,30,30));
+        initComponents();
     }
 
     /**
@@ -28,32 +39,28 @@ public class CategoriesSection extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
-        jLabel1.setText("Categories");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+            .addGap(0, 669, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(226, Short.MAX_VALUE))
+            .addGap(0, 434, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    @Override
+    protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(getBackground());
+        Area area = new Area(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), arc, arc));
+        g2.fill(area);
+        g2.dispose();
+        super.paintComponent(grphcs);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
-
-    // custom painting removed to avoid conflicts with form editor
 }
